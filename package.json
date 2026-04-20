@@ -1,0 +1,39 @@
+{
+  "name": "panda",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.6.5",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "corepack pnpm --parallel --stream --filter @panda/agent --filter @panda/web dev",
+    "dev:full": "corepack pnpm --parallel --stream --filter @panda/agent --filter @panda/hub --filter @panda/web dev",
+    "dev:web": "corepack pnpm --filter @panda/web dev",
+    "dev:agent": "corepack pnpm --filter @panda/agent dev",
+    "dev:hub": "corepack pnpm --filter @panda/hub dev",
+    "dev:cli:agent": "corepack pnpm exec tsx ./release/panda-agent/src/cli.ts",
+    "dev:cli:hub": "corepack pnpm exec tsx ./release/panda-hub/src/cli.ts",
+    "build:web": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/use-node-and-run.ps1 -NodeVersionFile .nvmrc -Command \"corepack pnpm --dir apps/web build\"",
+    "build:mobile:web": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/use-node-and-run.ps1 -NodeVersionFile .nvmrc -Command \"corepack pnpm --dir apps/web build:mobile\"",
+    "build:raw": "corepack pnpm -r build",
+    "build": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/use-node-and-run.ps1 -NodeVersionFile .nvmrc -Command \"corepack pnpm run build:raw\"",
+    "typecheck": "corepack pnpm -r typecheck",
+    "android:sync": "node ./scripts/android-sync.mjs",
+    "android:debug": "node ./scripts/android-build.mjs debug",
+    "android:release": "node ./scripts/android-build.mjs release",
+    "release:build": "node ./scripts/release-build.mjs",
+    "release:build:android": "node ./scripts/android-build.mjs release --publish",
+    "release:build:all": "node ./scripts/release-build-all.mjs",
+    "release:publish": "node ./scripts/release-publish.mjs",
+    "verify:pkg:agent": "node ./scripts/run-release-package.mjs panda-agent panda-agent",
+    "verify:pkg:hub": "node ./scripts/run-release-package.mjs panda-hub panda-hub"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/qrcode-terminal": "^0.12.2",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

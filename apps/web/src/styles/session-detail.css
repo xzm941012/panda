@@ -1,0 +1,277 @@
+.session-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* ── Overview strip ── */
+
+.session-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklab, var(--color-surface-panel) 92%, white 8%);
+  border: 1px solid var(--color-surface-border);
+  box-shadow: var(--shadow-panel);
+}
+
+.session-overview__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.session-overview__summary {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--color-text-secondary);
+}
+
+.session-overview__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ── Timeline ── */
+
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.timeline-entry {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+  border: 1px solid color-mix(in oklab, var(--color-surface-border) 88%, white 12%);
+  animation: rise-in 480ms var(--motion-base);
+  animation-delay: calc(var(--i, 0) * 40ms);
+  animation-fill-mode: both;
+}
+
+.timeline-entry--primary {
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--color-accent-primary-soft) 70%, white 30%), transparent 60%),
+    var(--color-surface-raised);
+}
+
+.timeline-entry--secondary {
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--color-accent-secondary-soft) 70%, white 30%), transparent 60%),
+    var(--color-surface-raised);
+}
+
+.timeline-entry--muted {
+  background: var(--color-surface-raised);
+}
+
+.timeline-entry__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.timeline-entry h4 {
+  margin: 0;
+  font-size: 1.02rem;
+  color: var(--color-text-primary);
+}
+
+.timeline-entry p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+/* ── Feed ── */
+
+.feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feed-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+  border: 1px solid color-mix(in oklab, var(--color-surface-border) 88%, white 12%);
+}
+
+.feed-item strong {
+  color: var(--color-text-primary);
+}
+
+.feed-item span {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+/* ── Inspector tabs ── */
+
+.inspector-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.tab-chip--active {
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  color: var(--color-accent-contrast);
+  border-color: transparent;
+  font-weight: 600;
+}
+
+/* ── Composer ── */
+
+.composer-container {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(180deg, transparent, var(--color-surface-base) 20%);
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.composer-inner {
+  width: 100%;
+  max-width: 800px;
+  background: var(--color-surface-panel);
+  border: 1px solid var(--color-surface-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--motion-base);
+}
+
+.composer-inner:focus-within {
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 8px 32px rgba(var(--color-accent-primary-rgb), 0.15);
+}
+
+.composer-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.composer-input {
+  width: 100%;
+  min-height: 2.5rem;
+  max-height: 200px;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--color-text-primary);
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.composer-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.composer-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-top: 1px solid color-mix(in oklab, var(--color-surface-border) 40%, transparent);
+  margin-top: 0.25rem;
+}
+
+.composer-tools {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tool-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--motion-fast);
+}
+
+.tool-btn:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-text-primary);
+}
+
+.tool-icon {
+  font-size: 1rem;
+}
+
+.composer-send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-text-primary);
+  color: var(--color-surface-base);
+  cursor: pointer;
+  transition: all var(--motion-fast);
+  flex-shrink: 0;
+}
+
+.composer-send-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: var(--color-accent-primary);
+}
+
+.composer-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-surface-border);
+  color: var(--color-text-muted);
+}
+
+.composer-error {
+  margin: 0 1rem 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-danger);
+}
+
+@media (max-width: 768px) {
+  .composer-container {
+    padding: 0.5rem;
+  }
+  .composer-inner {
+    border-radius: 1rem;
+  }
+}

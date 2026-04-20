@@ -1,0 +1,18 @@
+{
+  "name": "@panda/hub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsup src/index.ts --format esm --platform node --out-dir dist --clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.2",
+    "@fastify/websocket": "^11.0.2",
+    "@panda/protocol": "workspace:*",
+    "@panda/provider-codex": "workspace:*",
+    "fastify": "^5.2.1"
+  }
+}

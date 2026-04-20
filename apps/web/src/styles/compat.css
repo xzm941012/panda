@@ -1,0 +1,78 @@
+@supports not (background: color-mix(in oklab, white 50%, black)) {
+  body {
+    background: var(--color-surface-base);
+  }
+
+  .conversation-topbar,
+  .conversation-run-popover,
+  .topbar-menu,
+  .composer-utility-menu__popover,
+  .proposed-plan-card,
+  .session-git-panel__summary,
+  .session-git-panel__composer,
+  .session-git-panel__notice,
+  .session-git-panel__empty,
+  .session-run-panel__command-card,
+  .session-run-panel__notice,
+  .session-run-panel__empty,
+  .session-terminal-panel__notice {
+    border-color: var(--color-surface-border-soft);
+    background: var(--color-surface-panel);
+    box-shadow: var(--shadow-panel);
+  }
+
+  .proposed-plan-card__footer,
+  .session-git-panel__list {
+    background: var(--color-surface-base);
+  }
+
+  .chat-composer,
+  .chat-composer__attachment-chip,
+  .proposed-plan-card__input,
+  .session-run-panel__input,
+  .session-run-panel__select,
+  .session-run-panel__textarea,
+  .session-run-panel__ghost-button,
+  .session-run-panel__icon-button,
+  .session-terminal-panel__icon-button,
+  .session-git-panel__input {
+    border-color: var(--color-surface-border-soft);
+    background: var(--color-surface-floating);
+  }
+
+  .session-run-panel__count,
+  .session-run-panel__command-source,
+  .session-run-panel__command-pill {
+    background: var(--color-surface-hover);
+  }
+
+  .conversation-entry.is-user .conversation-entry__body,
+  .proposed-plan-card__confirm,
+  .session-run-panel__primary-button {
+    border-color: var(--color-accent-primary);
+    background: var(--color-accent-primary-soft);
+    color: var(--color-accent-contrast, var(--color-text-primary));
+  }
+
+  .session-run-panel__command-pill.is-node,
+  .session-run-panel__command-source.is-codex {
+    color: var(--color-accent-primary);
+  }
+
+  .session-run-panel__command-pill.is-kill,
+  .session-run-panel__icon-button.is-warning,
+  .session-run-panel__notice.is-error,
+  .session-terminal-panel__notice.is-error {
+    border-color: var(--color-danger);
+    background: var(--color-surface-danger-soft);
+    color: var(--color-text-danger, var(--color-danger));
+  }
+
+  .conversation-topbar,
+  .conversation-run-popover,
+  .topbar-menu,
+  .composer-utility-menu__popover {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

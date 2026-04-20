@@ -1,0 +1,13 @@
+{
+  "name": "@panda/design-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.css"
+  },
+  "scripts": {
+    "build": "node -e \"console.log('design tokens ready')\"",
+    "typecheck": "node -e \"console.log('design tokens: no typecheck')\""
+  }
+}

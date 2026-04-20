@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Ink-wash panda logo holding bamboo</title>
+  <desc id="desc">A black, white, and green ink-style panda holding a bamboo branch.</desc>
+  <defs>
+    <filter id="ink-soften" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.2"/>
+    </filter>
+    <filter id="ink-halo" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <g fill="#111111">
+    <ellipse cx="262" cy="256" rx="166" ry="154" opacity=".08" filter="url(#ink-halo)"/>
+    <path d="M117 271c-10-60 8-119 52-157 39-34 92-50 145-42 56 8 104 38 136 84 31 45 42 103 28 158-7 31-21 59-41 84-6 8-19 10-28 2-8-6-9-18-2-27 31-38 43-91 31-140-21-88-101-147-191-139-39 4-77 21-106 49-40 40-56 99-42 154 2 11-6 22-18 24-10 2-21-5-24-16Z" opacity=".9"/>
+    <ellipse cx="140" cy="196" rx="17" ry="24" transform="rotate(-24 140 196)" opacity=".36" filter="url(#ink-soften)"/>
+    <ellipse cx="384" cy="173" rx="13" ry="20" transform="rotate(26 384 173)" opacity=".32" filter="url(#ink-soften)"/>
+    <ellipse cx="401" cy="317" rx="11" ry="17" transform="rotate(-8 401 317)" opacity=".24" filter="url(#ink-soften)"/>
+    <ellipse cx="128" cy="329" rx="12" ry="18" transform="rotate(22 128 329)" opacity=".2" filter="url(#ink-soften)"/>
+  </g>
+
+  <g transform="translate(6 2)">
+    <g filter="url(#ink-soften)" opacity=".22">
+      <path d="M174 385c12-29 36-50 65-58 11-3 22 6 21 17-1 8-7 13-14 16-17 6-31 19-41 36-4 7-13 10-20 6-9-4-14-11-11-17Z" fill="#111111"/>
+      <path d="M305 382c-10-28-32-49-60-57-10-3-21 5-22 16-1 8 5 14 12 17 17 7 30 20 39 37 4 8 14 11 22 6 9-5 13-12 9-19Z" fill="#111111"/>
+    </g>
+
+    <path d="M177 315c-6-58 17-108 56-138 40-31 97-34 140-7 42 26 68 76 66 129-3 68-46 123-109 140-64 17-133-15-153-76-4-14-6-29-6-48Z" fill="#111111"/>
+
+    <ellipse cx="266" cy="187" rx="92" ry="83" fill="#111111"/>
+    <ellipse cx="211" cy="128" rx="30" ry="35" transform="rotate(-20 211 128)" fill="#111111"/>
+    <ellipse cx="322" cy="126" rx="31" ry="36" transform="rotate(21 322 126)" fill="#111111"/>
+
+    <ellipse cx="265" cy="198" rx="68" ry="62" fill="#FFFFFF"/>
+    <ellipse cx="264" cy="303" rx="66" ry="84" fill="#FFFFFF"/>
+
+    <ellipse cx="226" cy="193" rx="26" ry="35" transform="rotate(24 226 193)" fill="#111111"/>
+    <ellipse cx="307" cy="193" rx="26" ry="35" transform="rotate(-24 307 193)" fill="#111111"/>
+    <ellipse cx="227" cy="207" rx="10" ry="13" fill="#FFFFFF" opacity=".85"/>
+    <ellipse cx="307" cy="207" rx="10" ry="13" fill="#FFFFFF" opacity=".85"/>
+
+    <ellipse cx="248" cy="214" rx="6" ry="8" fill="#111111"/>
+    <ellipse cx="287" cy="214" rx="6" ry="8" fill="#111111"/>
+    <path d="M258 231c5-6 15-6 20 0-2 8-8 13-16 13-7 0-13-5-14-13h10Z" fill="#111111"/>
+    <path d="M258 246c10 9 20 9 30 0" fill="none" stroke="#111111" stroke-width="5" stroke-linecap="round"/>
+    <path d="M246 246c-10 9-20 9-30 0" fill="none" stroke="#111111" stroke-width="5" stroke-linecap="round"/>
+
+    <path d="M191 254c-24 21-36 52-31 83 2 13 16 21 28 16 12-4 18-18 14-30-5-18 1-38 15-50 8-7 9-20 2-29-7-10-18-12-28-4Z" fill="#111111"/>
+    <path d="M340 252c24 21 36 52 32 82-2 13-17 21-29 17-12-5-18-18-14-30 5-18-1-38-15-50-8-8-9-20-2-30 8-9 18-11 28-3Z" fill="#111111"/>
+
+    <path d="M207 370c-28 13-47 37-54 66-3 12 6 24 19 26 12 2 23-5 26-17 4-15 15-28 29-34 11-5 16-18 11-29-5-12-18-17-31-12Z" fill="#111111"/>
+    <path d="M323 369c28 14 47 37 54 67 3 12-6 23-18 26-13 2-24-5-27-17-4-16-15-29-29-35-11-5-16-18-11-29 5-12 18-17 31-12Z" fill="#111111"/>
+
+    <path d="M173 284c24-15 48-9 76 18 20 18 35 21 46 20 12-1 19 10 16 20-3 8-11 13-19 13-23 2-48-8-69-28-18-17-29-20-38-15-10 6-23 4-29-7-6-10-1-25 17-21Z" fill="#111111"/>
+
+    <g transform="rotate(-27 304 274)">
+      <rect x="278" y="170" width="28" height="180" rx="14" fill="#2F8F46"/>
+      <rect x="278" y="200" width="28" height="12" fill="#FFFFFF" opacity=".16"/>
+      <rect x="278" y="245" width="28" height="12" fill="#FFFFFF" opacity=".16"/>
+      <rect x="278" y="290" width="28" height="12" fill="#FFFFFF" opacity=".16"/>
+      <path d="M306 205c27-10 50-5 70 18-28 3-50-4-70-18Z" fill="#2F8F46"/>
+      <path d="M278 238c-30-7-50 2-68 27 29-2 50-11 68-27Z" fill="#2F8F46"/>
+      <path d="M306 279c24-8 43-4 60 16-24 2-42-4-60-16Z" fill="#2F8F46"/>
+    </g>
+
+    <path d="M284 284c14 11 28 15 42 12 12-2 23 6 25 18 2 11-6 22-17 24-26 5-52-2-76-22-9-7-11-21-4-30 7-9 20-11 30-2Z" fill="#111111"/>
+
+    <path d="M200 334c19 18 41 28 66 30 11 1 19 11 18 22-1 11-11 18-22 18-35-2-68-17-94-42-8-8-8-21 0-29 8-9 22-8 32 1Z" fill="#111111" opacity=".92"/>
+  </g>
+</svg>

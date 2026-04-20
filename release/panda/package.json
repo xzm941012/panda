@@ -1,0 +1,25 @@
+{
+  "name": "@jamiexiongr/panda",
+  "version": "0.1.29",
+  "type": "module",
+  "private": false,
+  "description": "Panda combined installer",
+  "bin": {
+    "panda": "./bin/panda.cjs"
+  },
+  "dependencies": {
+    "@jamiexiongr/panda-agent": "0.1.29",
+    "@jamiexiongr/panda-hub": "0.1.29"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

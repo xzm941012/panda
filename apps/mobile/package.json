@@ -1,0 +1,23 @@
+{
+  "name": "@panda/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:android": "capacitor sync android",
+    "open:android": "capacitor open android"
+  },
+  "dependencies": {
+    "@capacitor-mlkit/barcode-scanning": "7.5.0",
+    "@capacitor/app": "latest-7",
+    "@capacitor/browser": "latest-7",
+    "@capacitor/core": "latest-7",
+    "@capacitor/local-notifications": "latest-7",
+    "@capacitor/preferences": "latest-7"
+  },
+  "devDependencies": {
+    "@capacitor/android": "latest-7",
+    "@capacitor/cli": "latest-7",
+    "typescript": "^5.8.2"
+  }
+}
