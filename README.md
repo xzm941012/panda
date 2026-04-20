@@ -1,191 +1,123 @@
-# Panda 研究包
+# Panda
 
-这个文件夹包含 `Panda` 的研究与规划材料。`Panda` 是一个面向移动端优先的 Codex 与 Claude Code 远程控制系统。
+Panda 是一个给手机和桌面浏览器使用的远程控制入口，用来连接你的 AI 编码环境。
 
-这里包含：
+它主要包含两个部分：
 
-- `research/00-project-ranking.md`
-  外部项目排名，以及为什么选择这 8 个仓库。
-- `research/subagent-01-cloudcli-and-ccv.md`
-- `research/subagent-02-webui-and-ccremote.md`
-- `research/subagent-03-agentrooms-and-codexia.md`
-- `research/subagent-04-remote-agent-and-yepanywhere.md`
-- `research/subagent-05-vision-and-remodex.md`
-  五条彼此独立的研究线。由于当前这个 Codex 运行时并不暴露真正的 GPT-5.4 子代理启动能力，所以这些内容采用了“子代理报告”的写法。
-- `docs/panda-architecture.md`
-  Panda 的推荐系统架构。
-- `docs/panda-requirements.md`
-  产品需求、MVP 范围以及分阶段交付计划。
-- `docs/panda-codex-run-state.md`
-  Codex 会话运行态、thinking UI、停止按钮和 bootstrap/timeline 一致性的专题文档。
-- `docs/npm-release.md`
-  Panda 的 npm 发布流程、token 获取方式，以及自动发布命令说明。
-- `docs/panda-user-guide.md`
-  面向最终用户的安装、运行、扫码和手机端使用说明。
+- `Hub`：提供 Web 界面，手机扫码后打开的就是它
+- `Agent`：连接本机或远程的 AI 编码会话、终端和项目
 
-已克隆到 `D:\ai\remotecodex` 的外部仓库：
+如果你只是想安装并用起来，按下面步骤操作即可。
 
-1. `siteboon/claudecodeui`
-2. `JessyTsui/Claude-Code-Remote`
-3. `d-kimuson/claude-code-viewer`
-4. `sugyan/claude-code-webui`
-5. `baryhuang/claude-code-by-agents`
-6. `milisp/codexia`
-7. `coleam00/remote-agentic-coding-system`
-8. `kzahel/yepanywhere`
+## 环境要求
 
-纳入专门研究的本地仓库：
+- Node.js `20.19.0` 或更高版本
+- npm
+- 一种组网软件，用来给设备分配可互通的虚拟 IP
 
-- `D:\ai\vision`
-- `D:\ai\remodex`
+## npm 安装
 
-选择说明：
-
-- `remodex` 如果按照 star 数和近期活跃度来排，本来会非常靠前，但它被排除在外部 top-8 集合之外，因为它已经有一条专门的本地深度研究线。
-- `vision` 也被单独处理，因为它已经位于当前工作区中，并且与计划中的架构直接相关。
-
-## 当前开发启动命令
-
-安装依赖：
+推荐直接安装总入口包：
 
 ```powershell
-corepack pnpm install
+npm install -g @jamiexiongr/panda@latest --registry=https://registry.npmjs.org/
 ```
 
-启动第一阶段直连开发环境（Web + Agent）：
+安装完成后可用命令：
 
 ```powershell
-corepack pnpm dev
+panda
 ```
 
-启动第一阶段完整开发环境（Web + Agent + Hub）：
+如果你只想单独安装某一部分，也可以：
 
 ```powershell
-corepack pnpm dev:full
+npm install -g @jamiexiongr/panda-hub@latest --registry=https://registry.npmjs.org/
+npm install -g @jamiexiongr/panda-agent@latest --registry=https://registry.npmjs.org/
 ```
 
-单独启动：
+## 运行步骤
+
+README 统一按组网方案说明。
+
+推荐启动方式是 `Hub` 和 `Agent` 运行在同一台机器上：
+
+1. 启动 `Hub`
 
 ```powershell
-corepack pnpm dev:web
-corepack pnpm dev:agent
-corepack pnpm dev:hub
+panda hub
 ```
 
-## Hub-Agent 启动说明
-
-当前 agent 通过环境变量 `PANDA_HUB_URL` 知道自己要注册到哪个 hub。
-
-也就是说：
-
-- hub 地址不是写死在代码里的
-- agent 每次启动时都可以指向不同的 hub
-- 最适合变化频繁地址的方式，就是启动时通过 VSCode 输入或外部环境变量传入
-
-### 关键环境变量
-
-Hub：
+2. 在同一台机器上启动 `Agent`
 
 ```powershell
-$env:PANDA_HUB_PORT='4343'
-$env:PANDA_HUB_API_KEY='your-key'
-corepack pnpm dev:hub
+$env:PANDA_GROUP_IP='你的组网虚拟IP'
+panda agent
 ```
 
-发布态如果要给 Android Chrome 验证 PWA 安装，可使用：
+`PANDA_GROUP_IP` 表示组网软件分配给当前机器的组网虚拟 IP。
+
+推荐使用以下组网软件：
+
+- [Tailscale](https://tailscale.com/)
+- [贝锐蒲公英](https://pgy.oray.com/)
+
+这组命令表示：
+
+- `Hub` 在本机启动 Panda Web 入口
+- `Agent` 通过 `PANDA_GROUP_IP` 按组网方式注册到同一组里的 `Hub`
+- `PANDA_GROUP_IP` 应填写当前机器在组网软件中的虚拟 IP
+
+启动后，浏览器打开 `Hub` 地址即可进入 Panda。
+
+## 常用命令
+
+总入口安装后：
 
 ```powershell
-panda hub tailscareserv-pub
+panda hub
+$env:PANDA_GROUP_IP='你的组网虚拟IP'
+panda agent
 ```
 
-如果手机不在 Tailscale 里，但你仍希望手机通过 Hub 页面直连 Agent，可使用：
+如果你安装的是单独包，对应命令为：
 
 ```powershell
-panda agent tailscareserv-pub
+panda-hub
+panda-agent
 ```
 
-Agent：
+## 常用默认端口
 
-```powershell
-$env:PANDA_AGENT_PORT='4242'
-$env:PANDA_HUB_URL='http://127.0.0.1:4343'
-$env:PANDA_HUB_API_KEY='your-key'
-corepack pnpm dev:agent
-```
+- `Hub` 默认端口：`4343`
+- `Agent` 默认端口：`4242`
 
-Web 连接指定 Hub：
+## 常见问题
 
-```powershell
-$env:VITE_PANDA_HUB_URL='http://127.0.0.1:4343'
-corepack pnpm dev:web
-```
+### 1. 安装后找不到 `panda` 命令
 
-### VSCode 启动方式
+先确认 npm 全局安装目录已经加入系统 `PATH`，然后重新打开终端再试。
 
-仓库里现在把启动入口放回 VSCode `launch`：
+### 2. 手机扫码后打不开页面
 
-- `Dev: Hub`
-- `Dev: Agent -> Hub`
-- `Dev: Web -> Hub`
-- `Dev: Full Local`
+优先检查：
 
-其中 `Dev:*` 会在运行时弹出输入框，让你填：
+- `Hub` 是否还在运行
+- 当前访问的是否是正确的 `Hub` 地址
+- `Agent` 是否已经按相同组网配置启动
 
-- Hub URL
-- Agent 端口
-- Agent 直连 HTTP 地址（可选）
-- Agent 直连 WebSocket 地址（可选）
+### 3. 页面能打开，但看不到 Agent
 
-其中 Agent 的两个直连地址如果留空，会继续走 agent 侧的自动推断逻辑；如果你是多网卡、跨机器或需要手动指定注册地址的场景，可以在启动时显式填写。
+通常是 `Agent` 还没启动，或者 `PANDA_GROUP_IP` 配置不正确。
 
-这样 hub 地址变化时，不需要改代码，只需要重新启动并输入新的地址。
+如果你使用了组网软件，优先确认当前填写的是该软件分配给本机的虚拟 IP，而不是普通局域网 IP。
 
-### 推荐用法
+## 更多说明
 
-本机联调：
-
-1. 最省事的是直接运行 `Dev: Full Local`
-2. 如果要单独接远端节点，就分别运行 `Dev: Hub`、`Dev: Agent -> Hub`、`Dev: Web -> Hub`
-
-`tasks` 现在只保留 `Setup: Install`，避免和 `launch` 重复。
-
-远端 hub / 多节点 agent：
-
-1. 在 hub 节点启动 hub
-2. 在每个 agent 节点启动 agent，并把 `PANDA_HUB_URL` 指向对应 hub
-3. 如果 hub 地址变化，只需要重启 agent 并传入新的 `PANDA_HUB_URL`
-
-### 关于“Hub 地址不固定”
-
-这是正常情况，尤其是：
-
-- hub 跑在某个 agent 节点上
-- hub 在不同环境里地址不同
-- Tailscale DNS 名称、临时 IP、端口可能变化
-
-因此当前建议是：
-
-- 配置入口统一用 `PANDA_HUB_URL`
-- 开发时优先用 VSCode 启动输入
-- 部署时由系统服务、启动脚本或 CI/CD 注入环境变量
-
-不要把 hub 地址硬编码进 agent 源码。
-
-校验与构建：
-
-```powershell
-corepack pnpm typecheck
-corepack pnpm build
-```
-
-`corepack pnpm build` 会先读取项目根目录的 `.nvmrc`，再通过 `nvm` 自动切换到指定 Node 版本后执行构建。当前锁定版本是 `20.19.3`。
-
-## npm 发布
-
-Panda 的 npm 发布说明、token 获取入口和自动发布脚本用法见：
-
-- `docs/npm-release.md`
-
-最终用户安装和使用说明见：
+更完整的用户指南见：
 
 - `docs/panda-user-guide.md`
+
+npm 发布与包结构说明见：
+
+- `docs/npm-release.md`
