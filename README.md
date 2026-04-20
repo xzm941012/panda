@@ -82,11 +82,13 @@ panda hub
 2. 在同一台机器上启动 `Agent`
 
 ```powershell
+$env:PANDA_AGENT_NAME='家里的工作站'
 $env:PANDA_GROUP_IP='你的组网虚拟IP'
 panda agent
 ```
 
 `PANDA_GROUP_IP` 表示组网软件分配给当前机器的组网虚拟 IP。
+`PANDA_AGENT_NAME` 表示这个节点在 Panda 里的显示名称。
 
 推荐使用以下组网软件：
 
@@ -107,6 +109,7 @@ panda agent
 
 ```powershell
 panda hub
+$env:PANDA_AGENT_NAME='家里的工作站'
 $env:PANDA_GROUP_IP='你的组网虚拟IP'
 panda agent
 ```
