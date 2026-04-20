@@ -42,7 +42,7 @@ codex --version
 
 ## 移动端 App
 
-- Android：当前提供编译好的 APK，建议从 GitHub Releases 下载并安装
+- Android：当前提供编译好的 APK，建议从 [GitHub Releases](https://github.com/xzm941012/panda/releases) 下载并安装
 - iOS：当前不提供现成安装包，需要你自行编译
 - Android 安装包可通过新版 APK 直接覆盖安装升级
 
